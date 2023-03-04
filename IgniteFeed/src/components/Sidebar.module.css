@@ -54,4 +54,13 @@
 .sidebar footer a:hover {
   background: var(--green-500);
   color: var(--white);
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.githubLink {
+  font-size: 0.875rem;
+  color: var(--green-500);
+  line-height: 1.65;
+  text-decoration: none;
 }
