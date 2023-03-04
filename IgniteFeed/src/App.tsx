@@ -1,34 +1,80 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import { Header } from './components/Header';
+import { Sidebar } from './components/Sidebar';
+import { Post, PostType } from './components/Post';
 
-function App() {
-  const [count, setCount] = useState(0)
+import './global.css';
+import styles from './App.module.css';
 
+const posts: PostType[] = [
+  {
+    id: 1,
+    author: {
+      avatarUrl: 'https://github.com/florencioMath.png',
+      name: 'Matheus Florêncio',
+      role: 'Software Engineer',
+    },
+    content: [
+      { type: 'paragraph', content: 'Fala galera 👋' },
+      {
+        type: 'paragraph',
+        content:
+          'Acabei de subir mais um projeto no meu portifa. É um projeto que fiz no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀',
+      },
+      { type: 'link', content: 'jane.design/doctorcare' },
+    ],
+    publishedAt: new Date('2023-02-10 21:00:00'),
+  },
+  {
+    id: 2,
+    author: {
+      avatarUrl: 'https://github.com/diego3g.png',
+      name: 'Diego Fernandes',
+      role: 'CTO @Rocketseat',
+    },
+    content: [
+      { type: 'paragraph', content: 'Fala galera 👋' },
+      {
+        type: 'paragraph',
+        content:
+          'Acabei de subir mais um projeto no meu portifa. É um projeto que fiz no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀',
+      },
+      { type: 'link', content: 'jane.design/doctorcare' },
+    ],
+    publishedAt: new Date('2023-02-20 21:00:00'),
+  },
+  {
+    id: 3,
+    author: {
+      avatarUrl: 'https://github.com/maykbrito.png',
+      name: 'Mayk Brito',
+      role: 'Educator @Rocketseat',
+    },
+    content: [
+      { type: 'paragraph', content: 'Fala galera 👋' },
+      {
+        type: 'paragraph',
+        content:
+          'Acabei de subir mais um projeto no meu portifa. É um projeto que fiz no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀',
+      },
+      { type: 'link', content: 'jane.design/doctorcare' },
+    ],
+    publishedAt: new Date('2023-02-28 21:40:00'),
+  },
+];
+
+export function App() {
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
-  )
-}
+    <div>
+      <Header />
 
-export default App
+      <div className={styles.wrapper}>
+        <Sidebar />
+        <main>
+          {posts.map((post) => {
+            return <Post key={post.id} post={post} />;
+          })}
+        </main>
+      </div>
+    </div>
+  );
+}
