@@ -7,13 +7,23 @@ export function Sidebar() {
     <aside className={styles.sidebar}>
       <img
         className={styles.cover}
-        src='https://images.unsplash.com/photo-1603468620905-8de7d86b781e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=50'
+        src='https://media.licdn.com/dms/image/D4D16AQExBqYQu77h3w/profile-displaybackgroundimage-shrink_350_1400/0/1677951621377?e=1683158400&v=beta&t=1tAZgWvnYkwCXQU2F2fgO0r4PD5Ff9WjOqXoua7ni5Q'
       />
 
       <div className={styles.profile}>
-        <Avatar src='https://github.com/florencioMath.png' alt='' />
+        <Avatar src='https://github.com/florencioMath.png' />
         <strong>Matheus Florêncio</strong>
         <span>Software Engineer</span>
+        <span>
+          Github:{' '}
+          <a
+            className={styles.githubLink}
+            href='https://github.com/florencioMath'
+            target='_blank'
+          >
+            florencioMath
+          </a>
+        </span>
       </div>
 
       <footer>
