@@ -98,7 +98,9 @@ export function Post({ post }: PostProps) {
           } else if (line.type === 'link') {
             return (
               <p key={line.content}>
-                <a href='#'>{line.content}</a>
+                <a href={`https://${line.content}`} target='_blank'>
+                  {line.content}
+                </a>
               </p>
             );
           }
