@@ -12,7 +12,8 @@ Aplicativo de Feed desenvolvido durante a Trilha ReactJS do Ignite na Rocketseat
   <a href="#-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-layout">Layout</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#memo-licença">Licença</a>
+  <a href="#-instalação">Instalação</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#memo-licença">Licença</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
 </p>
 
 <p align="center">
@@ -49,10 +50,40 @@ Esse é o primeiro projeto desenvolvido durante a Trilha Ignite de ReactJS, ele 
 
 Você pode visualizar o layout do projeto através [DESSE LINK](https://www.figma.com/community/file/1113573231685349036). É necessário ter conta no [Figma](https://figma.com) para acessá-lo.
 
+
+## 🪛 Instalação 
+
+### Pré-requisitos
+
+* npm
+```sh
+ npm install npm@latest -g
+````
+
+### Instalação
+
+1. Clone o repositório
+```sh
+https://github.com/florencioMath/Challenge-Ignite-IgniteFeed.git
+```
+2. Entre na pasta e instale as dependências
+```sh
+$ cd IgniteFeed
+$ npm install
+```
+3. Inicie o projeto
+```sh
+$ npm run dev
+```
+4. Abra no navegador 
+```txt
+http://localhost:5173/
+```
+
 ## :memo: Licença
 
 Esse projeto está sob a licença MIT.
 
 ---
 
-Feito com ♥ by Matheus Florêncio :wave: [Participe da nossa comunidade!](https://discord.gg/rocketseat)
+Feito com 🖤 by Matheus Florêncio :wave:
