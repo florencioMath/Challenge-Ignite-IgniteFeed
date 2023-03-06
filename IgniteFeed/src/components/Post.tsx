@@ -29,14 +29,14 @@ interface PostProps {
   post: PostType;
 }
 
-interface CommentProps {
+interface Comment {
   id: number;
   likes: number;
   content: string;
 }
 
 export function Post({ post }: PostProps) {
-  const [comments, setComments] = useState<CommentProps[]>([]);
+  const [comments, setComments] = useState<Comment[]>([]);
   const [newCommentText, setNewCommentText] = useState('');
 
   const publishedDateFormatted = format(
