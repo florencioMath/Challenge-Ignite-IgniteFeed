@@ -29,8 +29,13 @@ interface PostProps {
   post: PostType;
 }
 
+interface CommentProps {
+  id: number;
+  content: string;
+}
+
 export function Post({ post }: PostProps) {
-  const [comments, setComments] = useState(['Post muito bacana, hein?!']);
+  const [comments, setComments] = useState<CommentProps[]>([]);
   const [newCommentText, setNewCommentText] = useState('');
 
   const publishedDateFormatted = format(
@@ -48,8 +53,14 @@ export function Post({ post }: PostProps) {
 
   function handleCrateNewComment(event: FormEvent) {
     event.preventDefault();
+    setComments([
+      ...comments,
+      {
+        id: comments.length + 1,
+        content: newCommentText,
+      },
+    ]);
 
-    setComments([...comments, newCommentText]);
     setNewCommentText('');
   }
 
@@ -58,9 +69,9 @@ export function Post({ post }: PostProps) {
     setNewCommentText(event.target.value);
   }
 
-  function deleteComment(commentToDelete: string) {
+  function deleteComment(commentToDelete: number) {
     const commentsWithoutDeletedOne = comments.filter((comment) => {
-      return comment !== commentToDelete;
+      return comment.id !== commentToDelete;
     });
 
     setComments(commentsWithoutDeletedOne);
@@ -129,8 +140,9 @@ export function Post({ post }: PostProps) {
         {comments.map((comment) => {
           return (
             <Comment
-              key={comment}
-              content={comment}
+              key={comment.id}
+              id={comment.id}
+              content={comment.content}
               onDeleteComment={deleteComment}
             />
           );
