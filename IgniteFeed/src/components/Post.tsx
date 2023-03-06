@@ -31,6 +31,7 @@ interface PostProps {
 
 interface CommentProps {
   id: number;
+  likes: number;
   content: string;
 }
 
@@ -57,6 +58,7 @@ export function Post({ post }: PostProps) {
       ...comments,
       {
         id: comments.length + 1,
+        likes: 0,
         content: newCommentText,
       },
     ]);
@@ -79,6 +81,20 @@ export function Post({ post }: PostProps) {
 
   function handleNewCommentInvalid(event: InvalidEvent<HTMLTextAreaElement>) {
     event.target.setCustomValidity('Esse campo é obrigatório!');
+  }
+
+  function handleUpdateCommentLike(commentId: number) {
+    setComments(
+      comments.map((comment) => {
+        if (comment.id === commentId) {
+          return {
+            ...comment,
+            likes: comment.likes + 1,
+          };
+        }
+        return comment;
+      })
+    );
   }
 
   const isNewCommentEmpty = newCommentText.length === 0;
@@ -143,6 +159,8 @@ export function Post({ post }: PostProps) {
               key={comment.id}
               id={comment.id}
               content={comment.content}
+              likes={comment.likes}
+              onLike={handleUpdateCommentLike}
               onDeleteComment={deleteComment}
             />
           );
